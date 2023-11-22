@@ -28,6 +28,10 @@ class WeatherViewController: UIViewController {
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
     }
+    //MARK: Funktion wenn Nutzer auf Bildschirm drückt
+    override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
+            print("Test")
+
+  }
     
 }
-
