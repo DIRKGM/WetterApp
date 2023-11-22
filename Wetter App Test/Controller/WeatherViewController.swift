@@ -28,9 +28,10 @@ class WeatherViewController: UIViewController {
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
     }
-    //MARK: Funktion wenn Nutzer auf Bildschirm drückt
+    //MARK: Funktion wenn Nutzer auf Bildschirm drückt, spirng in zweiten Screen
+    
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
-            print("Test")
+           performSegue(withIdentifier: "moreWeatherInfo", sender: nil)
 
   }
     
