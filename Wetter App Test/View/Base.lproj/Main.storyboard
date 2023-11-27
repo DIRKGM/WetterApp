@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Hintergrundbild" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-Z1-hI6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-Z1-hI6">
                                 <rect key="frame" x="0.0" y="91" width="390" height="681"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -203,7 +203,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Hintergrundbild" width="745" height="576"/>
+        <image name="Background" width="1897" height="1239"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="sun.max.fill" catalog="system" width="128" height="125"/>
         <systemColor name="labelColor">

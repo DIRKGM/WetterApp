@@ -18,10 +18,16 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     
+    // Zeit und Datum
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    // Zeit und Datum -> ruft jede Sekunde self.currenTime auf
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.currenTime), userInfo: nil, repeats: true)
+     
+        setDate()
     }
     
     // Suchbutton drücken
@@ -35,4 +41,18 @@ class WeatherViewController: UIViewController {
 
   }
     
+    //MARK: Zeit laden
+    @objc func currenTime() {
+        let formater = DateFormatter()
+        formater.dateFormat = "HH:mm:ss"
+        timeLabel.text = formater.string(from: Date())
+    }
+    
+    //MARK: Datum anzeigen
+    func setDate(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.locale = Locale(identifier: "de_DE")
+        dateLabel.text = formatter.string(from: Date())
+    }
 }
