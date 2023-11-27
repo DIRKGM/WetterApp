@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Hintergrundbild" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-Z1-hI6">
+                                <rect key="frame" x="0.0" y="91" width="390" height="681"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Suche" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="1gV-fg-YJL">
                                 <rect key="frame" x="63" y="103" width="274" height="39.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -199,6 +203,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Hintergrundbild" width="745" height="576"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="sun.max.fill" catalog="system" width="128" height="125"/>
         <systemColor name="labelColor">
