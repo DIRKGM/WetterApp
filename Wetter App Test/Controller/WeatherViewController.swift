@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -24,9 +24,13 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    // Zeit und Datum -> ruft jede Sekunde self.currenTime auf
+        searchTextField.delegate = self
+        
+        
+        
+        // Zeit und Datum -> ruft jede Sekunde self.currenTime auf
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.currenTime), userInfo: nil, repeats: true)
-     
+        
         setDate()
     }
     
@@ -37,9 +41,9 @@ class WeatherViewController: UIViewController {
     //MARK: Funktion wenn Nutzer auf Bildschirm drückt, spirng in zweiten Screen
     
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
-           performSegue(withIdentifier: "moreWeatherInfo", sender: nil)
-
-  }
+        performSegue(withIdentifier: "moreWeatherInfo", sender: nil)
+        
+    }
     
     //MARK: Zeit laden
     @objc func currenTime() {
@@ -55,4 +59,45 @@ class WeatherViewController: UIViewController {
         formatter.locale = Locale(identifier: "de_DE")
         dateLabel.text = formatter.string(from: Date())
     }
+    
+    //MARK: Funktionen aus dem Protocol UITextFieldDelegate
+    //Meldung es hat jemand auf den Button gedrückt, soll ich die Tastatur einfahren
+    // Funktionen aus dem Protocol UITextFieldDelegate
+    
+    // Meldung: - Es hat jemand auf den Return Button gedrückt, ööö soll ich die Tastatur einfahren?
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+    // Meldung: Es hat jemand das tippen beendet, ööö soll ich die Tastatur einfahren?
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            let alert = UIAlertController(title: "Achtung", message: "Bitte Stadt eingeben", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+    }
+    
+    // Meldung: Es hat jemand das tippen beendet, fahre die Tastatur ein!
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // Suche nach den Wetterdaten starten
+        
+        //OptinoalBinding um zu Prüfen ob was drin ist
+        if let _cityName = searchTextField.text {
+            // Die Suche starten
+            print(_cityName)
+            
+        }
+        // leert das Suchfeld wieder
+        searchTextField.text = ""
+    }
 }
+
