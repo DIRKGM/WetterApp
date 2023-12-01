@@ -52,7 +52,7 @@ struct WeatherManager {
         task.resume()
     }
     
-    func parseJSON(_ weatherData: Data) -> WeatherModel? {
+    func parseJSON(_ weatherData: Data) -> WeatherModel? { // Rückgabetyp Wathermodel
       let decoder = JSONDecoder()
         
         // "name": "Berlin" -> In Swift decoden
@@ -74,6 +74,7 @@ struct WeatherManager {
             let rain = decodeData.clouds.all
             let windSpeed = decodeData.wind.speed
             
+            // Object erstellen
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, description: description, sunrise: sunrise, sunset: sunset, temp_max: temp_max, temp_min: temp_min, pressure: pressure, humidity: humidity, rain: rain, windSpeed: windSpeed)
             
             return weather
