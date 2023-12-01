@@ -21,6 +21,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     // Zeit und Datum
     var timer = Timer()
     
+    var weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,7 +96,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         if let _cityName = searchTextField.text {
             // Die Suche starten
             print(_cityName)
-            
+            weatherManager.fetchWeather(cityName: _cityName)
         }
         // leert das Suchfeld wieder
         searchTextField.text = ""

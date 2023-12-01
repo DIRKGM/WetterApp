@@ -22,6 +22,7 @@ struct WeatherManager {
     var delegate: WeatherManagerDelegate? // -> Hier drin ist der WeatherViewController
     
     func fetchWeather(cityName: String) {
+        // URL zur API bauen
         let urlAsString = WEATHER_URL_BY_CITYNAME + cityName + "&appid=\(ID)" + "&units=\(UNIT)" + "&lang=\(LANGUAGE)"
         print(urlAsString)
         performRequest(urlString: urlAsString)
@@ -35,7 +36,7 @@ struct WeatherManager {
         // 3. Die Task erstellen
         let task = session.dataTask(with: url) { (data, urlRepsonse, error) in
             if error != nil {
-                print(error!)
+                print(error!)// "!" bedeutet Unwrapping wird entpackt
                 return
             }
             
