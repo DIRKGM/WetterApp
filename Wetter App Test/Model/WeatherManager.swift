@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Protocoll wird genutzt um die Daten ausserhalb dieser Datei zu nutzen
 protocol WeatherManagerDelegate {
     func didUpdateWeather(weather: WeatherModel)
     func didFailWithError(error: Error)
