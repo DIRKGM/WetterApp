@@ -7,7 +7,8 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITextFieldDelegate {
+class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+   
     
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -101,5 +102,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         // leert das Suchfeld wieder
         searchTextField.text = ""
     }
+    
+    // Dadurch das es ein Protocoll ist muss man es "fertig" machen
+    func didUpdateWeather(weather: WeatherModel) {
+        <#code#>
+    }
+    
+    func didFailWithError(error: Error) {
+        <#code#>
+    }
+    
+    
+    
 }
 

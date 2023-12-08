@@ -20,7 +20,7 @@ struct WeatherManager {
     let ID = "74ecd2f42c4eb136a60fcc0021e20134"
     let WEATHER_URL_BY_CITYNAME = "https://api.openweathermap.org/data/2.5/weather?q="
     
-    var delegate: WeatherManagerDelegate? // -> Hier drin ist der WeatherViewController
+    var delegate: WeatherManagerDelegate? // -> Hier drin ist der WeatherViewController - In der var steckt das Protocoll. Optional geht nur da, var Initialisiert werden muss
     
     func fetchWeather(cityName: String) {
         // URL zur API bauen

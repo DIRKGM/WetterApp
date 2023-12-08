@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct WeatherModel {
     // Stored property -> Wert wird einfach nur dort gelagert / gespeichert
         let conditionId: Int
