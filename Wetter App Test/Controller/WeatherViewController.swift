@@ -28,7 +28,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         super.viewDidLoad()
         
         searchTextField.delegate = self
-        
+        weatherManager.delegate = self
         
         
         // Zeit und Datum -> ruft jede Sekunde self.currenTime auf
@@ -105,11 +105,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     
     // Dadurch das es ein Protocoll ist muss man es "fertig" machen
     func didUpdateWeather(weather: WeatherModel) {
-        <#code#>
+        // sorgt dafür, dass die Daten erst geladen werden und dann angezeigt da App sonst Abstürtzt
+        DispatchQueue.main.async{
+            self.tempLabel.text = String(weather.temperature)
+            self.cityNameLabel.text = weather.cityName
+            self.statusLabel.text = weather.description
+            self.weatherImageView.image = UIImage (systemName: weather.conditionName)
+        }
     }
     
     func didFailWithError(error: Error) {
-        <#code#>
+        print("error")
     }
     
     
